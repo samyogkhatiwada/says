@@ -1,0 +1,45 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Says | Confess Securely.{% endblock title %}
+{% block body %}
+{% if messages %}
+{% for message in messages %}
+<div class="bg-green-100 rounded-lg py-5 px-6 mb-3 text-base text-green-700 inline-flex items-center w-full" role="alert">
+  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check-circle" class="w-4 h-4 mr-2 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <path fill="currentColor" d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"></path>
+  </svg>
+  {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+<div class="bg-white dark:bg-gray-800 flex relative z-20 items-center overflow-hidden">
+  <div class="container mx-auto px-6 flex relative py-16">
+      <div class="sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
+          <span class="w-20 h-2 bg-gray-800 dark:bg-white mb-12">
+          </span>
+          <h1 class="font-bebas-neue uppercase text-6xl sm:text-8xl font-black flex flex-col leading-none dark:text-white text-gray-800">
+              Confess
+              <span class="text-5xl sm:text-7xl">
+                  Securely
+              </span>
+          </h1>
+          <p class="text-sm sm:text-base text-gray-700 dark:text-white">
+             A platform where you can confess to anyone or signup and create your own confession page. Start by logging in or signing up to the webapp.
+          </p>
+          <div class="flex mt-8">
+              <a href="{% url 'login' %}" class="uppercase py-2 px-4 rounded-lg bg-indigo-500 border-2 border-transparent text-white text-md mr-4 hover:bg-indigo-400">
+                 Login
+              </a>
+              <a href="{% url 'register' %}" class="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-indigo-500 text-indigo-500 dark:text-white hover:bg-indigo-500 hover:text-white text-md">
+                 SignUp
+              </a>
+          </div>
+      </div>
+      <div class="hidden sm:block sm:w-1/3 lg:w-3/5 relative">
+          <img src="{% static 'images/hero.png' %}" class="max-w-xs md:max-w-sm m-auto"/>
+      </div>
+  </div>
+</div>
+
+
+{% endblock body %}

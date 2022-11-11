@@ -1,0 +1,18 @@
+{% extends 'app/base.html' %}
+{% block title %}Are you sure you want to delete your account{% endblock title %}
+{% block body %}
+{% include 'includes/navbar.html' %}
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto">
+        <h1 class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900">Are you sure you want to delete your account?</h1>
+        
+        <form action="" method="POST">
+            {% csrf_token %}
+        <button class="flex-shrink-0 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg mt-10 sm:mt-0">Yes</button>
+    </form>
+    
+  </div>
+  <a href="{% url 'index' %}" class="ml-2 block text-sm text-gray-900">Back to home</a>
+    </div>
+  </section>{% endblock body %}
